@@ -8,19 +8,19 @@ const emotions = [
     type: "sad",
     image: "/cry.png",
     label: "Sad",
-    message: "Have a joke to cheer you up:",
+    message: "Have a joke to cheer you up",
   },
   {
     type: "frustrated",
     image: "/frustrated.png",
     label: "Frustrated",
-    message: "A motivational quote for you:",
+    message: "A motivational quote for you",
   },
   {
     type: "nervous",
     image: "/nervous.png",
     label: "Nervous",
-    message: "Let this cute dog calm your nerves:",
+    message: "Let this cute dog calm your nerves",
   },
 ];
 
@@ -63,7 +63,6 @@ export default function MoodMender() {
             "https://dog.ceo/api/breeds/image/random"
           );
           const dogData = await dogResponse.json();
-          content = "Take a deep breath and enjoy this cute dog picture.";
           image = dogData.message;
           break;
         default:
@@ -112,11 +111,11 @@ export default function MoodMender() {
           </div>
         </div>
         <div
-          className="md:w-2/3 p-8 bg-gray-200"
+          className="md:w-2/3 p-8 "
           style={{
-            backgroundImage: "url('/background.jpg')",
+            backgroundImage: "url('/background3.jpg')",
             backgroundSize: "cover",
-            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            backgroundColor: "rgba(24, 24, 24, 0.2)",
           }}
         >
           {isLoading ? (
@@ -127,11 +126,11 @@ export default function MoodMender() {
             </div>
           ) : recommendation ? (
             <div className="relative h-full flex flex-col justify-center bg-cover bg-center">
-              <h3 className="text-3xl font-semibold mb-4 text-teal-600 z-10">
+              <h3 className="text-4xl font-semibold mb-4 text-center text-white z-10">
                 {emotions.find((e) => e.type === emotion)?.message ||
                   "Your Mood Mender:"}
               </h3>
-              <p className="text-2xl font-medium mb-6 whitespace-pre-wrap text-gray-600 z-10">
+              <p className="text-2xl font-medium mb-6 whitespace-pre-wrap text-center text-white z-10">
                 {recommendation.content}
               </p>
               {recommendation.image && (
